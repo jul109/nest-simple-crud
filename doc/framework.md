@@ -49,3 +49,10 @@ docker compose up -d
 ```
 This file needs to give pgadmin permissions.
 sudo docker exec --user root pgadmin4_container chown pgadmin /var/lib/pgadmin
+
+Sign in in pg-admin. You can use the user postgres and the db_password. The hostname must be db(the service), because pgadmin and the db are in the same server. In psql you use localhost
+
+---
+
+**Nest database association**
+App module.
