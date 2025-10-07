@@ -1,26 +1,33 @@
-import { Controller, Delete, Get, Param, ParseUUIDPipe, Put } from '@nestjs/common';
+import { Controller, Delete, Get, Param, ParseUUIDPipe, Post, Put } from '@nestjs/common';
 
 @Controller('users')
 export class UsersController {
     @Get()
-    findGetall(){
+    findGetall() {
         return "Get all";
     }
 
     @Get(':id')
-    getById(@Param('id', ParseUUIDPipe) id: string){
+    getById(@Param('id', ParseUUIDPipe) id: string) {
         return `Get ${id}`;
     }
 
     @Delete(':id')
-    remove(@Param('id',ParseUUIDPipe) id: string) {
+    remove(@Param('id', ParseUUIDPipe) id: string) {
         return `Delete ${id}`;
     }
 
     @Put(':id')
-    update(@Param('id',ParseUUIDPipe) id: string){
+    update(@Param('id', ParseUUIDPipe) id: string) {
         return `Update ${id}`;
     }
 
-  
+    @Post()
+    post() {
+        return "Post";
+    }
+
+    
+
+
 }

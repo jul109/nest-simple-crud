@@ -10,7 +10,7 @@ export class User {
   username: string;
 
   @Column('text', {array: true, default: []})
-  role: string;
+  roles: string[];
 
   @Column('text')
   password: string;

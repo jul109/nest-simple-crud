@@ -42,7 +42,7 @@ E.g: If someone requires a service, that specific instance is going to be given.
 3) Define methods. Use labels to define validations and body or route params.
 4) Create entity
 5) Create DTOs
-
+6) Create service and inject the repository
 
 
 
