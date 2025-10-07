@@ -28,6 +28,8 @@ E.g: Person controller, person service and entity are in the same folder.
 
 E.g: If someone requires a service, that specific instance is going to be given.
 
+**DTO**: Classes that
+
 ---
 
 **Decorator** Labels to add additional functionalities to a class or method.
@@ -38,8 +40,12 @@ E.g: If someone requires a service, that specific instance is going to be given.
 1) Create the module
 2) Create the controller. The argument of the controller label is used as the base route. 
 3) Define methods. Use labels to define validations and body or route params.
+4) Create entity
+5) Create DTOs
 
-2) Create thee whole resource. 
+
+
+
 
 ---
 
