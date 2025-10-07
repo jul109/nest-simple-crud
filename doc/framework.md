@@ -38,3 +38,14 @@ E.g: If someone requires a service, that specific instance is going to be given.
 1) Create the module
 2) Create the controller. The argument of the controller label is used as the base route. 
 3) Define methods. Use labels to define validations and body or route params.
+
+2) Create thee whole resource. 
+
+---
+
+**Run Data Base:** 
+```
+docker compose up -d
+```
+This file needs to give pgadmin permissions.
+sudo docker exec --user root pgadmin4_container chown pgadmin /var/lib/pgadmin
