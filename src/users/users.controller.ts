@@ -3,10 +3,13 @@ import { UsersService } from './users.service';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { CreateUserDto } from './dto/create-user.dto';
 import { PaginationDto } from 'src/common/dto/pagination.dto';
+import { Auth } from 'src/auth/decorator/auth-decorator';
+import { AppRoles } from 'src/auth/interfaces/app-roles';
 @Controller('users')
 export class UsersController {
     constructor(private readonly usersService: UsersService) { }
     @Get()
+    @Auth(AppRoles.admin)
     findGetall(@Body() paginationDto: PaginationDto) {
         return this.usersService.findAll(paginationDto);
     }

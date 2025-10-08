@@ -20,6 +20,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     }
 
     async validate(payload: any) {
+        console.log("ULAA");
         const id = payload.user_id;
         const user: any = await this.userRepository.findOneBy({ id });
 
@@ -27,6 +28,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
             throw new UnauthorizedException('user doesnt exist');
         if (!(user?.isActive))
             throw new UnauthorizedException('inactive user');
+        
 
         return user;
     }

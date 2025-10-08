@@ -53,10 +53,16 @@
 			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "bearer",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMzFiZjA5ZWQtYWU5NS00OWE4LTgzMGMtNjcwYmJkMjg4OWM0Iiwicm9sZXMiOlsiYWRtaW4iXSwiaWF0IjoxNzU5OTA0MzA5LCJleHAiOjE4NTk5MDQ4MjB9.76BtDZepngNvwkJTu6sVEs0EM7bAAb7DGvcU_OK0LGk",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"limit\":1,\n    \"offset\":1\n}",
+					"raw": "{\n    \"limit\":1,\n    \"offset\":0\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -76,7 +82,7 @@
 			"response": []
 		},
 		{
-			"name": "getOne",
+			"name": "getOne Copy",
 			"request": {
 				"method": "GET",
 				"header": [],

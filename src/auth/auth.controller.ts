@@ -5,6 +5,8 @@ import {  LoginUserDto } from './dto/login-user.dto';
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
 import { RegisterUserDto } from './dto/register-user.dto';
 import { UpdateUserDtoAuth } from './dto/update-user.dto';
+import { Auth } from './decorator/auth-decorator';
+import { AppRoles } from './interfaces/app-roles';
 
 @Controller('auth')
 export class AuthController {
@@ -22,6 +24,7 @@ export class AuthController {
   }
 
   @Patch('update/:username')
+  @Auth(AppRoles.admin)
   update(@Param('username') username: string,@Body() updateUserDtoAuth: UpdateUserDtoAuth) {
     return this.authService.update(username,updateUserDtoAuth);
   }
