@@ -64,7 +64,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+					"raw": "{\n\n    \"username\":\"pocoyo\",\n    \"password\": \"12345\"\n\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -92,7 +92,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\": \"jeje\"\n}",
+					"raw": "{\n    \"username\":\"pocoyi\",\n    \"password\": \"123\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -100,14 +100,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/auth/update/12",
+					"raw": "{{url}}/auth/update/pocoyo",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"auth",
 						"update",
-						"12"
+						"pocoyo"
 					]
 				}
 			},

@@ -62,3 +62,7 @@ Sign in in pg-admin. You can use the user postgres and the db_password. The host
 
 **Nest database association**
 App module.
+
+
+**Authentication**
+Auth module uses User entity and usersService. We specify these importations in the file. Users module class also sasys that users service is exported. 

@@ -4,7 +4,7 @@ import {  LoginUserDto } from './dto/login-user.dto';
 
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
 import { RegisterUserDto } from './dto/register-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+import { UpdateUserDtoAuth } from './dto/update-user.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -22,8 +22,8 @@ export class AuthController {
   }
 
   @Patch('update/:username')
-  update(@Param('username') username: string,@Body() updateUserDto: UpdateUserDto) {
-    return this.authService.update(username,updateUserDto);
+  update(@Param('username') username: string,@Body() updateUserDtoAuth: UpdateUserDtoAuth) {
+    return this.authService.update(username,updateUserDtoAuth);
   }
 
   

@@ -42,6 +42,16 @@ export class UsersService {
         }
         return user;
     }
+    async findByUsername(username: string){
+        const user: User | null = await this.userRepository.findOne({
+            where: { username }
+        })
+        if (!user) {
+            throw new NotFoundException(`User not found`);
+        }
+        return user;
+    }
+    
 
     async findAll(paginationDto: PaginationDto) {
         const { limit, offset } = paginationDto;
