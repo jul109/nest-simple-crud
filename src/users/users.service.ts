@@ -17,9 +17,9 @@ export class UsersService {
     async create(createUserDto: CreateUserDto) {
         try {
             const user = this.userRepository.create(createUserDto);
-            return this.userRepository.save(user);
+            return await this.userRepository.save(user);
         } catch (error) {
-            throw new InternalServerErrorException('Error creating user');
+            throw new InternalServerErrorException(error.message);
         }
     }
 
@@ -35,7 +35,7 @@ export class UsersService {
     }
 
     async findAll() {
-        return this.userRepository.find();
+        return await this.userRepository.find();
     }
 
     async remove(id: number) {
@@ -54,7 +54,7 @@ export class UsersService {
             throw new NotFoundException(`User with id ${id} not found`);
 
 
-        return this.userRepository.save(user);
+        return await this.userRepository.save(user);
 
     }
 
