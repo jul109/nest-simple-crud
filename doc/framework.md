@@ -66,3 +66,5 @@ App module.
 
 **Authentication**
 Auth module uses User entity and usersService. We specify these importations in the file. Users module class also sasys that users service is exported. 
+
+** JWT strategy:** Implements the token validation and signing methods.
