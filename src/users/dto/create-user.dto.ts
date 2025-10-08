@@ -6,7 +6,7 @@ export class CreateUserDto{
     readonly username: string;
     @IsString()
     @Length(10,30)
-    readonly password: string;
+    password: string;
     @IsArray()
     @IsString({each: true})
     readonly roles: string[];

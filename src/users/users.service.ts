@@ -6,18 +6,26 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { isUUID } from 'class-validator';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { PaginationDto } from 'src/common/dto/pagination.dto';
+import * as bcrypt from 'bcrypt';
 
 
 
 @Injectable()
 export class UsersService {
+
     constructor(
         @InjectRepository(User) private readonly userRepository: Repository<User>
     ) { }
-
+    private readonly HASH_IT = 10; 
     async create(createUserDto: CreateUserDto) {
         try {
-            const user = this.userRepository.create(createUserDto);
+            const { password, ...userData } = createUserDto;
+            const user = this.userRepository.create({
+                password: bcrypt.hashSync(password, this.HASH_IT),
+                ...userData
+            }
+            )
+
             return await this.userRepository.save(user);
         } catch (error) {
             throw new InternalServerErrorException(error.message);
@@ -50,6 +58,9 @@ export class UsersService {
     }
 
     async update(id: number, updateUserDto: UpdateUserDto) {
+        if (updateUserDto.password) {
+            updateUserDto.password = bcrypt.hashSync(updateUserDto.password, this.HASH_IT);
+        }
         const user: User | undefined = await this.userRepository.preload({
             id,
             ...updateUserDto
