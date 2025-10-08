@@ -2,12 +2,13 @@ import { Body, Controller, Delete, Get, Param, ParseUUIDPipe, Patch, Post, Put }
 import { UsersService } from './users.service';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { CreateUserDto } from './dto/create-user.dto';
+import { PaginationDto } from 'src/common/dto/pagination.dto';
 @Controller('users')
 export class UsersController {
     constructor(private readonly usersService: UsersService) { }
     @Get()
-    findGetall() {
-        return this.usersService.findAll();
+    findGetall(@Body() paginationDto: PaginationDto) {
+        return this.usersService.findAll(paginationDto);
     }
 
     @Get(':id')

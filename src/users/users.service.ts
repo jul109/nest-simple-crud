@@ -5,6 +5,7 @@ import { User } from './entity/user.entity';
 import { CreateUserDto } from './dto/create-user.dto';
 import { isUUID } from 'class-validator';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { PaginationDto } from 'src/common/dto/pagination.dto';
 
 
 
@@ -34,8 +35,12 @@ export class UsersService {
         return user;
     }
 
-    async findAll() {
-        return await this.userRepository.find();
+    async findAll(paginationDto: PaginationDto) {
+        const { limit, offset } = paginationDto;
+        return await this.userRepository.find({
+            take: limit,
+            skip: offset
+        });
     }
 
     async remove(id: number) {
